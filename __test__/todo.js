@@ -10,7 +10,7 @@ const app = require("../app");
 
 let server, agent;
 
-describe("Todo Application", function () {
+describe("Todo Function", function () {
   beforeAll(async () => {
     await db.sequelize.sync({ force: true });
     server = app.listen(3000, () => {});

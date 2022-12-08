@@ -1,15 +1,11 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-unneeded-ternary */
 /* eslint-disable comma-dangle */
-/* eslint-disable quotes */
+/* eslint-disable no-unneeded-ternary */
 /* eslint-disable semi */
-
+/* eslint-disable quotes */
 const express = require("express");
 const app = express();
 const { Todo } = require("./models");
 const bodyParser = require("body-parser");
-const { request } = require("express");
-const { agent } = require("supertest");
 const path = require("path");
 
 app.use(bodyParser.json());
@@ -21,7 +17,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", async (request, response) => {
   const allTodos = await Todo.getTodos();
   if (request.accepts("html")) {
-    response.render("index", {
+    response.render('index', {
       allTodos,
     });
   } else {
@@ -31,9 +27,6 @@ app.get("/", async (request, response) => {
   }
 });
 
-// app.get("/", function (request, response) {
-//   response.send("Hello World");
-// });
 app.get("/", function (request, response) {
   console.log("Todo list", request.body);
 });
